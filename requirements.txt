@@ -1,0 +1,6 @@
+streamlit>=1.38
+anthropic>=0.40
+chromadb>=0.5
+pymupdf>=1.24
+python-dotenv>=1.0
+pysqlite3-binary; sys_platform == "linux"
