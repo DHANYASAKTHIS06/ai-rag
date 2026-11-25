@@ -1,3 +1,22 @@
+# Git ignore for CampusCopilot
 .env
-data/
+.streamlit/secrets.toml
 __pycache__/
+*.py[cod]
+*.pyo
+venv/
+.venv/
+env/
+data/chroma/
+data/uploads/
+data/*.db
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+*.log
+logs/
+*.egg-info/
+build/
+dist/

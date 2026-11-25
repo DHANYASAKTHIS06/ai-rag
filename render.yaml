@@ -1,0 +1,31 @@
+# render.yaml — Render Blueprint (Infrastructure as Code)
+# Deploy this entire app with one click using:
+# https://render.com/deploy?repo=https://github.com/YOUR_USERNAME/campuscopilot
+
+services:
+  - type: web
+    name: campuscopilot
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false                 # You'll enter this manually in Render dashboard
+      - key: CLAUDE_MODEL
+        value: claude-sonnet-4-6
+      - key: DATABASE_PATH
+        value: /data/campus.db
+      - key: CHROMA_PERSIST_DIRECTORY
+        value: /data/chroma
+      - key: DOCUMENT_STORAGE_PATH
+        value: /data/uploads
+      - key: ADMIN_PASSWORD
+        sync: false                 # You'll enter this manually
+      - key: OFFICER_PASSWORD
+        sync: false                 # You'll enter this manually
+    disk:
+      name: campuscopilot-data
+      mountPath: /data
+      sizeGB: 1                     # 1 GB persistent disk (free tier)
+    healthCheckPath: /_stcore/health
+    autoDeploy: true                # Auto-deploy on git push

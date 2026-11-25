@@ -4,3 +4,4 @@ chromadb>=0.5
 pymupdf>=1.24
 python-dotenv>=1.0
 pysqlite3-binary; sys_platform == "linux"
+reportlab>=4.0
